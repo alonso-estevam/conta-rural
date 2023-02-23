@@ -8,7 +8,9 @@ public class CadastroApp {
 		System.out.println("CONTA RURAL - CADASTRO");
 		
 		Util.receberDados();
-	
+		
+				
+		
 	}
 
 }
