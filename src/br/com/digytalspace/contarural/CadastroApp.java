@@ -5,11 +5,9 @@ import br.com.digytalspace.contarural.util.Util;
 public class CadastroApp {
 
 	public static void main(String[] args) {
-		System.out.println("CONTA RURAL - CADASTRO");
+		System.out.println("CONTA RURAL - CADASTRO");	
 		
-		Util.receberDados();
-		
-				
+		Util.salvarRegistroNoArquivoCsv(Util.receberDados());
 		
 	}
 
