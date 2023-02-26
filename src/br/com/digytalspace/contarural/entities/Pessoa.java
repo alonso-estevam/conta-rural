@@ -6,17 +6,36 @@ public class Pessoa {
 	
 	private String nome;
 	private LocalDate dataNascimento;
-	private String cpfOuCnpj;
-	private String rgOuIe;
+	private String cpfCnpj;
+	private String rgIe;
 	private Character sexo;
-	private String nomeDaMae;
-	private Character estadoCivil;
+	private String nomeMae;
+	private String estadoCivil;
 	private Double rendaAtual;
-	private String telefone;
-	private String celular;
+	private Integer telefone;
+	private Integer celular;
 	private String email;
 	private Endereco endereco;
 	
+	public Pessoa() {
+	}
+
+	public Pessoa(String nome, LocalDate dataNascimento, String cpfCnpj, String rgIe, Character sexo, String nomeMae,
+			String estadoCivil, Double rendaAtual, Integer telefone, Integer celular, String email, Endereco endereco) {
+		this.nome = nome;
+		this.dataNascimento = dataNascimento;
+		this.cpfCnpj = cpfCnpj;
+		this.rgIe = rgIe;
+		this.sexo = sexo;
+		this.nomeMae = nomeMae;
+		this.estadoCivil = estadoCivil;
+		this.rendaAtual = rendaAtual;
+		this.telefone = telefone;
+		this.celular = celular;
+		this.email = email;
+		this.endereco = endereco;
+	}
+
 	public String getNome() {
 		return nome;
 	}
@@ -33,20 +52,20 @@ public class Pessoa {
 		this.dataNascimento = dataNascimento;
 	}
 	
-	public String getCpfOuCnpj() {
-		return cpfOuCnpj;
+	public String getCpfCnpj() {
+		return cpfCnpj;
 	}
 	
-	public void setCpfOuCnpj(String cpfOuCnpj) {
-		this.cpfOuCnpj = cpfOuCnpj;
+	public void setCpfCnpj(String cpfCnpj) {
+		this.cpfCnpj = cpfCnpj;
 	}
 	
-	public String getRgOuIe() {
-		return rgOuIe;
+	public String getRgIe() {
+		return rgIe;
 	}
 	
-	public void setRgOuIe(String rgOuIe) {
-		this.rgOuIe = rgOuIe;
+	public void setRgIe(String rgIe) {
+		this.rgIe = rgIe;
 	}
 	
 	public Character getSexo() {
@@ -57,19 +76,19 @@ public class Pessoa {
 		this.sexo = sexo;
 	}
 	
-	public String getNomeDaMae() {
-		return nomeDaMae;
+	public String getNomeMae() {
+		return nomeMae;
 	}
 	
-	public void setNomeDaMae(String nomeDaMae) {
-		this.nomeDaMae = nomeDaMae;
+	public void setNomeMae(String nomeMae) {
+		this.nomeMae = nomeMae;
 	}
 	
-	public Character getEstadoCivil() {
+	public String getEstadoCivil() {
 		return estadoCivil;
 	}
 	
-	public void setEstadoCivil(Character estadoCivil) {
+	public void setEstadoCivil(String estadoCivil) {
 		this.estadoCivil = estadoCivil;
 	}
 	
@@ -81,19 +100,19 @@ public class Pessoa {
 		this.rendaAtual = rendaAtual;
 	}
 	
-	public String getTelefone() {
+	public Integer getTelefone() {
 		return telefone;
 	}
 	
-	public void setTelefone(String telefone) {
+	public void setTelefone(Integer telefone) {
 		this.telefone = telefone;
 	}
 	
-	public String getCelular() {
+	public Integer getCelular() {
 		return celular;
 	}
 	
-	public void setCelular(String celular) {
+	public void setCelular(Integer celular) {
 		this.celular = celular;
 	}
 	

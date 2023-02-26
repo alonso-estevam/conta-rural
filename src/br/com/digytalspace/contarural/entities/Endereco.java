@@ -10,7 +10,20 @@ public class Endereco {
 	private String municipio;
 	private String estado;
 	
-	
+	public Endereco() {
+	}
+
+	public Endereco(String cep, String logradouro, String numero, String bairro, String complemento, String municipio,
+			String estado) {
+		this.cep = cep;
+		this.logradouro = logradouro;
+		this.numero = numero;
+		this.bairro = bairro;
+		this.complemento = complemento;
+		this.municipio = municipio;
+		this.estado = estado;
+	}
+
 	public String getCep() {
 		return cep;
 	}
