@@ -35,10 +35,13 @@ public class Util {
 	}
 	
 	
-	public static void salvarRegistroNoArquivoCsv(String registro) {
+	public static void salvarRegistroNoArquivoCsv(List<Pessoa> lista) {
 		try(BufferedWriter bw = new BufferedWriter(new FileWriter(path, true))){
 			bw.newLine();
-			bw.append(registro);
+			for (Pessoa pessoa : lista) {
+				bw.append(pessoa.toString());				
+				bw.newLine();
+			}
 			System.out.println("Registro salvo");
 			
 		} catch(IOException e) {
