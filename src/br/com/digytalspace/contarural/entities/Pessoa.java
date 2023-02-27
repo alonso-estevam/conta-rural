@@ -1,9 +1,13 @@
 package br.com.digytalspace.contarural.entities;
 
+import java.io.Serializable;
 import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 
-public class Pessoa {
+public class Pessoa implements Serializable{
 	
+	private static final long serialVersionUID = 1L;
+
 	private String nome;
 	private LocalDate dataNascimento;
 	private String cpfCnpj;
@@ -131,7 +135,23 @@ public class Pessoa {
 	public void setEndereco(Endereco endereco) {
 		this.endereco = endereco;
 	}
+
+	@Override
+	public String toString() {
+		DateTimeFormatter dateTimeFormatter = DateTimeFormatter.ofPattern("dd/MM/yyyy");
+		return new StringBuilder()
+				.append(nome + ";")
+				.append(dataNascimento.format(dateTimeFormatter)+ ";")
+				.append(cpfCnpj + ";")
+				.append(rgIe + ";")
+				.append(rendaAtual + ";")
+				.append(telefone + ";")
+				.append(celular + ";")	
+				.append(email + ";")
+				.append(endereco)
+				.toString();
+	}
 	
-	
+		
 
 }

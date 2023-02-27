@@ -79,6 +79,19 @@ public class Endereco {
 	public void setEstado(String estado) {
 		this.estado = estado;
 	}
+
+	@Override
+	public String toString() {
+		return new StringBuilder()
+				.append(cep + ";")
+				.append(logradouro + ";")
+				.append(numero + ";")
+				.append(bairro + ";")
+				.append(complemento + ";")
+				.append(municipio + ";")
+				.append(estado)
+				.toString();
+	}
 	
 	
 }
