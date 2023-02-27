@@ -12,9 +12,6 @@ public class Pessoa implements Serializable{
 	private LocalDate dataNascimento;
 	private String cpfCnpj;
 	private String rgIe;
-	private Character sexo;
-	private String nomeMae;
-	private String estadoCivil;
 	private Double rendaAtual;
 	private Integer telefone;
 	private Integer celular;
@@ -24,15 +21,11 @@ public class Pessoa implements Serializable{
 	public Pessoa() {
 	}
 
-	public Pessoa(String nome, LocalDate dataNascimento, String cpfCnpj, String rgIe, Character sexo, String nomeMae,
-			String estadoCivil, Double rendaAtual, Integer telefone, Integer celular, String email, Endereco endereco) {
+	public Pessoa(String nome, LocalDate dataNascimento, String cpfCnpj, String rgIe, Double rendaAtual, Integer telefone, Integer celular, String email, Endereco endereco) {
 		this.nome = nome;
 		this.dataNascimento = dataNascimento;
 		this.cpfCnpj = cpfCnpj;
 		this.rgIe = rgIe;
-		this.sexo = sexo;
-		this.nomeMae = nomeMae;
-		this.estadoCivil = estadoCivil;
 		this.rendaAtual = rendaAtual;
 		this.telefone = telefone;
 		this.celular = celular;
@@ -70,30 +63,6 @@ public class Pessoa implements Serializable{
 	
 	public void setRgIe(String rgIe) {
 		this.rgIe = rgIe;
-	}
-	
-	public Character getSexo() {
-		return sexo;
-	}
-	
-	public void setSexo(Character sexo) {
-		this.sexo = sexo;
-	}
-	
-	public String getNomeMae() {
-		return nomeMae;
-	}
-	
-	public void setNomeMae(String nomeMae) {
-		this.nomeMae = nomeMae;
-	}
-	
-	public String getEstadoCivil() {
-		return estadoCivil;
-	}
-	
-	public void setEstadoCivil(String estadoCivil) {
-		this.estadoCivil = estadoCivil;
 	}
 	
 	public Double getRendaAtual() {

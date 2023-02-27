@@ -8,20 +8,20 @@ public class Endereco {
 	private String bairro;
 	private String complemento;
 	private String municipio;
-	private String estado;
+	private String uf;
 	
 	public Endereco() {
 	}
 
 	public Endereco(String cep, String logradouro, String numero, String bairro, String complemento, String municipio,
-			String estado) {
+			String uf) {
 		this.cep = cep;
 		this.logradouro = logradouro;
 		this.numero = numero;
 		this.bairro = bairro;
 		this.complemento = complemento;
 		this.municipio = municipio;
-		this.estado = estado;
+		this.uf = uf;
 	}
 
 	public String getCep() {
@@ -72,12 +72,12 @@ public class Endereco {
 		this.municipio = municipio;
 	}
 	
-	public String getEstado() {
-		return estado;
+	public String getUf() {
+		return uf;
 	}
 	
-	public void setEstado(String estado) {
-		this.estado = estado;
+	public void setEstado(String uf) {
+		this.uf = uf;
 	}
 
 	@Override
@@ -89,7 +89,7 @@ public class Endereco {
 				.append(bairro + ";")
 				.append(complemento + ";")
 				.append(municipio + ";")
-				.append(estado)
+				.append(uf)
 				.toString();
 	}
 	

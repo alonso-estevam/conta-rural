@@ -1,1 +1,1 @@
-nome;data_nascimento;cpf_ou_cnpj;rg_ou_ie;sexo;nome_da_mae;estado_civil;renda_atual;telefone;celular;email;cep;logradouro;numero;bairro;complemento;municipio;estado
+nome;data_nascimento;cpf_cnpj;rg_ie;renda_atual;telefone;celular;email;cep;logradouro;numero;bairro;complemento;municipio;uf
