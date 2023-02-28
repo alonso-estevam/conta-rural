@@ -1,6 +1,8 @@
 package br.com.digytalspace.contarural.util;
 
+import java.io.BufferedReader;
 import java.io.BufferedWriter;
+import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.time.LocalDate;
@@ -41,6 +43,21 @@ public class Util {
 			
 		} catch(IOException e) {
 			System.out.println("Erro: " + e.getMessage());
+		}
+	}
+	
+	public static void lerArquivoCsv() {
+		try(BufferedReader br = new BufferedReader(new FileReader(path))){
+			String linha = br.readLine();
+			linha = br.readLine();
+			while(linha != null) {
+				String[] vetor = linha.split(";");
+				
+				System.out.println(linha);
+				linha = br.readLine();
+			}
+		} catch(IOException e) {
+			System.out.println("Err: " + e.getMessage());
 		}
 	}
 }
