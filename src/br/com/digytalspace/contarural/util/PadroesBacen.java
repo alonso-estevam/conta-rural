@@ -1,5 +1,7 @@
 package br.com.digytalspace.contarural.util;
 
+import java.util.regex.Pattern;
+
 public class PadroesBacen {
 	String campoPadronizado = "";
 	
@@ -27,4 +29,19 @@ public class PadroesBacen {
 		}
 		return campoPadronizado.toUpperCase();
 	 }
+	
+	public String padronizaRendaAtual(String rendaAtual) {
+		String rendaPadronizada = "";
+		if(rendaAtual == null || rendaAtual == "") {
+			rendaPadronizada = "0000000000";
+		}
+		String semPonto = rendaAtual.replace(".", "");
+		String semVirgula = semPonto.replace(",", "");
+		StringBuilder builder = new StringBuilder();
+		for(int i = 0; i < 10 - semVirgula.length(); i++) {
+			builder.append("0");
+		}
+		rendaPadronizada = builder.append(semVirgula).toString();
+		return rendaPadronizada;
+	}
 }
