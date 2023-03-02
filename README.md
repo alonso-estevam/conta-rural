@@ -43,12 +43,15 @@ Outro detalhe são os tipos de dados de cada atributo. Para a maioria pensei em 
 O campo `sexo` ficou com o tipo `char`, pois receberá valores como `M` ou `F` (ou `N`, pensando em pessoas não-binárias), assim como o `estado civil`, que também receberá apenas uma letra (S para solteiro, C para casado, etc.). Por fim, o atributo `data de nascimento` ficou com o tipo `Date` (no caso de banco de dados) ou `LocalDate` (já focando na linguagem Java), pois é um tipo mais específico e que permite trabalhar com recursos mais adequados para datas.
 
 <h3>2. Estrutura do projeto Java</h3>
-Seguindo padrão de estrutura de diretórios - ou pacotes - da linguagem Java, vamos nomear o pacote mais genérico com o domínio da organização ao contrário. Supondo que o site do projeto seja `www.digytalspace.com.br`, e o nome do projeto em si seja "conta rural", o pacote ficaria: `br.com.digytalspace.contarural`.
-A classe principal do projeto é a que tem o método `main`; optei por nomear como `CadastroApp.java`, e deixar no pacote principal. 
-Em seguida, pensando que temos duas classes que são o reflexo das entidades, ou seja, das tabelas (no banco de dados), criei um pacote chamado `entities` e coloquei as classes `Pessoa` e `Endereco` dentro.
-Para armazenar a classe com os métodos de ler e escrever arquivos, achei uma boa criar um pacote chamado `util`. A classe com os métodos teria o mesmo nome, indicando que é uma classe com métodos auxiliares. Nesse mesmo pacote coloquei a classe `PadroesBacen`, que conterá métodos para formatar os campos de acordo com o requisito dos padrões Bacen.
+Seguindo padrão de estrutura de diretórios - ou pacotes - da linguagem Java, vamos nomear o pacote mais genérico com o domínio da organização ao contrário. Supondo que o site do projeto seja www.digytalspace.com.br, e o nome do projeto em si seja "conta rural", o pacote ficaria: <code>br.com.digytalspace.contarural</code>.
+A classe principal do projeto é a que tem o método <code>main</code>; optei por nomear como <code>CadastroApp.java</code>, e deixar no pacote principal. 
+Em seguida, pensando que temos duas classes que são o reflexo das entidades, ou seja, das tabelas (no banco de dados), criei um pacote chamado <code>entities</code> e coloquei as classes <code>Pessoa</code> e <code>Endereco</code> dentro.
+Para armazenar a classe com os métodos de ler e escrever arquivos, achei uma boa criar um pacote chamado <code>util</code>. A classe com os métodos teria o mesmo nome, indicando que é uma classe com métodos auxiliares. Nesse mesmo pacote coloquei a classe <code>PadroesBacen</code>, que conterá métodos para formatar os campos de acordo com o requisito dos padrões Bacen.
 A estrutura dos pacotes ficou assim: 
 <figure>
-  <img src="./public/estrutura-de-pacotes.png" alt="Estrutura de pacotes" style="width:100%">
+  <img src="./public/estrutura-de-pacotes.png" alt="Estrutura de pacotes" style="width:50%">
   <figcaption>Figura 2 - Estrutura de pacotes do projeto</figcaption>
 </figure>
+
+<h3>3. Criando as classes</h3>
+As primeiras classes criadas foram <code>Pessoa</code> e <code>Endereco</code>, e como elas já tinham sido modeladas no diagrama UML, ficou bem fácil implementar. Além dos atributos, acrescentei o construtor com parâmetros, para facilitar na hora de instanciar os objetos, e adicionei os <em>getters</em> e <em>setters</em> seguindo padrão de encapsulamento. Também sobrescrevi o método <code>toString()</code> de modo que cada campo ficasse com ponto e vírgula no final, já pensando em facilitar o momento de escrever os objetos no arquivo csv. Pelo mesmo motivo, a classe <code>Pessoa</code> implementa a interface <code>Serializable</code>, que permite salvar no disco "o estado atual dos objetos em arquivos em formato binário". 
