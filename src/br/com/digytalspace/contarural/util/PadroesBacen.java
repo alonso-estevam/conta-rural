@@ -1,5 +1,8 @@
 package br.com.digytalspace.contarural.util;
 
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
+import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 public class PadroesBacen {
@@ -15,20 +18,39 @@ public class PadroesBacen {
 	 * cidade (50)
 	 * @param campo
 	 * @param tamanhoMaximoDeCaracteres
-	 * @return a String padronizada conforme BACEN
+	 * @return String representando textos em geral padronizados conforme BACEN
 	 */
 	public String padronizaString(String campo, Integer tamanhoMaximoDeCaracteres){
 		if(campo.length() > tamanhoMaximoDeCaracteres){
 			campoPadronizado = campo.substring(0, tamanhoMaximoDeCaracteres);
-		} else if(campo.length() < tamanhoMaximoDeCaracteres) {
+		} 
+		
+		if(campo.length() < tamanhoMaximoDeCaracteres) {
 			StringBuilder builder = new StringBuilder();
 			for(int i = 0; i < tamanhoMaximoDeCaracteres; i++) {
 				builder.append(" ");
 			}
 			campoPadronizado = builder.insert(builder.length() - campo.length(), campo).toString().stripTrailing();
 		}
+		
 		return campoPadronizado.toUpperCase();
-	 }
+	}
+	/**
+	 * Padroniza datas, retirando quaisquer caracteres que não sejam números
+	 * e colocando nesta ordem: ano, mês, dia.
+	 * @param data
+	 * @return String representando a data padronizada conforme BACEN
+	 */
+	public String padronizaData(String data) {
+		String[] numerosData = data.split("/");
+		Integer dia = Integer.parseInt(numerosData[0]);
+		Integer mes = Integer.parseInt(numerosData[1]);
+		Integer ano = Integer.parseInt(numerosData[2]);
+		
+		LocalDate dataPadronizada = LocalDate.of(ano, mes, dia);
+		DateTimeFormatter dateTimeFormatter = DateTimeFormatter.ofPattern("yyyyMMdd");
+		return dataPadronizada.format(dateTimeFormatter);
+	}
 	
 	public String padronizaRendaAtual(String rendaAtual) {
 		String rendaPadronizada = "";
@@ -44,4 +66,6 @@ public class PadroesBacen {
 		rendaPadronizada = builder.append(semVirgula).toString();
 		return rendaPadronizada;
 	}
+	
+	
 }
