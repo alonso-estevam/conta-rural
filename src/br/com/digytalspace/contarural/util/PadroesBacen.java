@@ -4,7 +4,6 @@ import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 
 public class PadroesBacen {
-	String campoPadronizado = "";
 	
 	/**
 	 * Padroniza nomes em geral. Se o valor for superior ao tamanho máximo de caracteres,
@@ -74,10 +73,6 @@ public class PadroesBacen {
 	}
 	
 	private String preencheCampo(String dado, int tamanhoMaximo, char caractere) {
-		if(tamanhoMaximo < dado.length()) {
-			throw new IllegalArgumentException();
-		}
-		
 		StringBuilder sb = new StringBuilder(dado);
 		
 		for(int i = 0; i < tamanhoMaximo - dado.length(); i++) {

@@ -31,6 +31,7 @@ public class Util {
 		return listaClientes;
 	}
 	
+	public static PadroesBacen bacen = new PadroesBacen();
 	
 	public static void salvarRegistroNoArquivoCsv(List<Pessoa> lista) {
 		try(BufferedWriter bw = new BufferedWriter(new FileWriter(path, true))){
@@ -46,18 +47,37 @@ public class Util {
 		}
 	}
 	
-	public static void lerArquivoCsv() {
+	public static String lerArquivoCsv() {
+		StringBuilder sb = new StringBuilder();
+		
 		try(BufferedReader br = new BufferedReader(new FileReader(path))){
 			String linha = br.readLine();
 			linha = br.readLine();
+			
 			while(linha != null) {
-				String[] vetor = linha.split(";");
+				String[] campos = linha.split(";");
 				
-				System.out.println(linha);
+				sb.append(bacen.padronizaDadosTextuais(campos[0], 30) + ";"); //nome
+				sb.append(bacen.padronizaDatas(campos[1]) + ";"); // dataNascimento
+				sb.append(bacen.padronizaDadosNumericos(campos[2], 14) + ";"); //cpf
+				sb.append(bacen.padronizaDadosNumericos(campos[3], 10) + ";"); //rg
+				sb.append(bacen.padronizaDadosNumericos(campos[4], 10) + ";"); //renda
+				sb.append(bacen.padronizaDadosNumericos(campos[5], 10) + ";"); //telefone
+				sb.append(bacen.padronizaDadosNumericos(campos[6], 10) + ";"); //celular
+				sb.append(bacen.padronizaEmail(campos[7]) + ";"); //email
+				sb.append(bacen.padronizaDadosNumericos(campos[8], 8) + ";");//cep
+				sb.append(bacen.padronizaDadosTextuais(campos[9], 60) + ";"); //logradouro
+				sb.append(bacen.padronizaDadosNumericos(campos[10], 5) + ";"); //numero
+				sb.append(bacen.padronizaDadosTextuais(campos[11], 30) + ";"); //bairro
+				sb.append(bacen.padronizaDadosTextuais(campos[12], 20) + ";"); //complemento
+				sb.append(bacen.padronizaDadosTextuais(campos[13], 50) + ";"); //municipio
+				sb.append(bacen.padronizaDadosTextuais(campos[14], 2) + "\n"); //uf
+				
 				linha = br.readLine();
 			}
 		} catch(IOException e) {
 			System.out.println("Err: " + e.getMessage());
 		}
+		return sb.toString();
 	}
 }

@@ -11,7 +11,6 @@ public class CadastroApp {
 		Util.salvarRegistroNoArquivoCsv(Util.gerarDados());
 		Util.lerArquivoCsv();
 
-
 	}
 
 }
