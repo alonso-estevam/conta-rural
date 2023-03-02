@@ -16,6 +16,7 @@ public class PadroesBacen {
 	 * 		<li>bairro (30)</li>
 	 * 		<li>complemento (20)</li>
 	 * 		<li>cidade (50)</li>
+	 * 		<li>uf (2)</li>
 	 * 	</ul>
 	 * </p>
 	 * @param dado
@@ -66,6 +67,10 @@ public class PadroesBacen {
 	public String padronizaDadosNumericos(String dado, int tamanhoMaximo) {
 		String dadoFiltrado = filtraCaracteresNaoNumericos(dado);
 		return preencheCampo(dadoFiltrado, tamanhoMaximo, '0');
+	}
+	
+	public String padronizaEmail(String dado) {
+		return preencheCampo(dado, 70, ' ').toLowerCase();
 	}
 	
 	private String preencheCampo(String dado, int tamanhoMaximo, char caractere) {
