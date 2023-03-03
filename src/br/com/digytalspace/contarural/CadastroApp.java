@@ -9,7 +9,7 @@ public class CadastroApp {
 		System.out.println("CONTA RURAL - CADASTRO");
 
 		Util.salvarRegistroNoArquivoCsv(Util.gerarDados());
-		Util.lerArquivoCsv();
+		Util.gerarArquivoPadraoBacen(Util.extraiDadosDoArquivoCsv());
 
 	}
 

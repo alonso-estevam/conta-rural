@@ -47,7 +47,7 @@ public class Util {
 		}
 	}
 	
-	public static String lerArquivoCsv() {
+	public static String extraiDadosDoArquivoCsv() {
 		StringBuilder sb = new StringBuilder();
 		
 		try(BufferedReader br = new BufferedReader(new FileReader(path))){
@@ -58,13 +58,13 @@ public class Util {
 				String[] campos = linha.split(";");
 				
 				sb.append(bacen.padronizaDadosTextuais(campos[0], 30) + ";"); //nome
-				sb.append(bacen.padronizaDatas(campos[1]) + ";"); // dataNascimento
+				sb.append(bacen.padronizaDatas(campos[1]) + ";"); 			// dataNascimento
 				sb.append(bacen.padronizaDadosNumericos(campos[2], 14) + ";"); //cpf
 				sb.append(bacen.padronizaDadosNumericos(campos[3], 10) + ";"); //rg
 				sb.append(bacen.padronizaDadosNumericos(campos[4], 10) + ";"); //renda
 				sb.append(bacen.padronizaDadosNumericos(campos[5], 10) + ";"); //telefone
 				sb.append(bacen.padronizaDadosNumericos(campos[6], 10) + ";"); //celular
-				sb.append(bacen.padronizaEmail(campos[7]) + ";"); //email
+				sb.append(bacen.padronizaEmail(campos[7]) + ";");			 //email
 				sb.append(bacen.padronizaDadosNumericos(campos[8], 8) + ";");//cep
 				sb.append(bacen.padronizaDadosTextuais(campos[9], 60) + ";"); //logradouro
 				sb.append(bacen.padronizaDadosNumericos(campos[10], 5) + ";"); //numero
@@ -79,5 +79,14 @@ public class Util {
 			System.out.println("Err: " + e.getMessage());
 		}
 		return sb.toString();
+	}
+	
+	public static void gerarArquivoPadraoBacen(String registros) {
+		try(BufferedWriter bw = new BufferedWriter(new FileWriter("C:\\conta-rural\\conta-rural-fichas-cadastrais-bacen.txt", true))){
+			bw.append(registros);
+			System.out.println("Registro salvo");
+		} catch (IOException e) {
+			System.out.println("Erro: " + e.getMessage());
+		}
 	}
 }
